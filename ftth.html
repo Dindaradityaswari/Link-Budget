@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTTH Calculator - Link Budget</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-menu">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="ftth.html" class="nav-btn active">Receive Signal Level FFTH</a>
+                <a href="fo.html" class="nav-btn">Link Budget FO Backbone</a>
+            </div>
+        </nav>
+
+        <!-- FTTH Calculator -->
+        <div class="calculator-page">
+            <div class="calculator-card">
+                <h2>Perhitungan Receive Signal Level FFTH</h2>
+
+                <div class="form-group">
+                    <label>Daya Pemancar (dBm)</label>
+                    <input type="number" id="dayaPemancar" placeholder="contoh: 5" step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label>Panjang Kabel (meter)</label>
+                    <input type="number" id="panjangKabel" placeholder="contoh: 4000" step="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Jumlah Konektor</label>
+                    <input type="number" id="jumlahKonektor" placeholder="contoh: 1" step="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Jumlah Sambungan</label>
+                    <input type="number" id="jumlahSambungan" placeholder="contoh: 1" step="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Jenis Splitter 1</label>
+                    <select id="splitter1">
+                        <option value="">Pilih jenis splitter</option>
+                        <option value="3.7">1 : 2 (3.7 dBm)</option>
+                        <option value="7.25">1 : 4 (7.25 dBm)</option>
+                        <option value="10.38">1 : 8 (10.38 dBm)</option>
+                        <option value="14.1">1 : 16 (14.1 dBm)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Jenis Splitter 2</label>
+                    <select id="splitter2">
+                        <option value="">Pilih jenis splitter</option>
+                        <option value="3.7">1 : 2 (3.7 dBm)</option>
+                        <option value="7.25">1 : 4 (7.25 dBm)</option>
+                        <option value="10.38">1 : 8 (10.38 dBm)</option>
+                        <option value="14.1">1 : 16 (14.1 dBm)</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="hitungftth()">Hitung</button>
+                    <button class="btn btn-secondary" onclick="resetFormftth()">Reset</button>
+                </div>
+            </div>
+
+            <div class="result-card" id="resultCard">
+                <h2>Hasil Perhitungan</h2>
+                <label style="display: block; margin-bottom: 10px; color: #666; font-weight: 600;">Receive Signal Level FTTH 1 Saluran Optik</label>
+                <div class="result-box" id="hasilText"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Perhitungan Link Budget FO Backbone & Receive Signal Level Jaringan FTTH</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
