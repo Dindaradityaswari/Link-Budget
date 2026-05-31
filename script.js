@@ -41,8 +41,16 @@ function hitungftth() {
     const totalredamansaluran = (panjangKM*0.35 + konektor*0.25 + sambungan*0.1 + splitter1 + splitter2);
     const PerhitunganRSLFTTH = (daya - totalredamansaluran -7);
 
+    let status = "";
+
+    if (PerhitunganRSLFTTH >= -28 && PerhitunganRSLFTTH <= -15) {
+        status = `<span>✅ Receive Signal Level sesuai standar (-15 s.d. -28 dBm)</span>`;
+    } else {
+        status = `<span>❌ Receive Signal Level tidak sesuai standar (-15 s.d. -28 dBm)</span>`;
+    }
+
     // Tampilkan hasil
-    const hasilText = `${PerhitunganRSLFTTH.toFixed(2)} dBm`;
+    const hasilText = `<p>${PerhitunganRSLFTTH.toFixed(2)} dBm</p> <p>${status}</p>`;
     
     document.getElementById('hasilText').innerHTML = hasilText;
     document.getElementById('resultCard').classList.add('show');
